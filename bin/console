@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'dotenv'
+require 'fritzbox'
+
+def load_environment_variables
+  env_file = ENV['ENV_FILE'] || '.env'
+  raise "#{env_file} not found" unless File.exist?(env_file)
+
+  puts "Loading `#{env_file}` file"
+  Dotenv.load(env_file)
+end
+
+load_environment_variables
+
+Fritzbox.configure do |config|
+  config.password = ENV['FRITZBOX_PASSWORD']
+end
+
+require 'irb'
+IRB.start(__FILE__)
