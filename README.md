@@ -48,7 +48,7 @@ bundle exec rspec spec
 to run the tests.
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-By default it expects a `.env` file looks like, if you want to test it against your hubspot instance:
+By default it expects a `.env` file looks like, if you want to test it against your fritzbox instance:
 ```shell
 PASSWORD=<FRITZBOX_PASSWORD>
 ```

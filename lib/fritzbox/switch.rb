@@ -6,11 +6,13 @@ module Fritzbox
     COMMANDS = {
       on: 'setswitchon',
       off: 'setswitchoff',
-      state: 'getswitchstate'
+      state: 'getswitchstate',
+      current_power: 'getswitchpower',
+      overall_power: 'getswitchenergy'
     }
 
     def self.get_all_devices
-      url = self.get("/webservices/homeautoswitch.lua?sid=#{Fritzbox.configuration.session.id}&switchcmd=getswitchlist")
+      self.get("/webservices/homeautoswitch.lua?sid=#{Fritzbox.configuration.session.id}&switchcmd=getswitchlist")
     end
 
     def initialize(ain)
